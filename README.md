@@ -1,4 +1,4 @@
-# 🅿️ ESP32 MQTT Client - Sistema de Monitoreo de Estacionamientos
+# ESP32 MQTT Client - Sistema de Monitoreo de Estacionamientos
 
 [![ESP32](https://img.shields.io/badge/ESP32-WROOM--32-blue)](https://www.espressif.com/)
 [![MQTT](https://img.shields.io/badge/MQTT-HiveMQ%20Cloud-orange)](https://www.hivemq.com/)
