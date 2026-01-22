@@ -63,17 +63,17 @@ El sistema:
 
 ---
 
-## ✨ Características
+## Características
 
-| Característica                  | Descripción                            |
-| -------------------------------- | --------------------------------------- |
-| 🔐**Conexión Segura**     | MQTT sobre TLS/SSL (puerto 8883)        |
-| 📡**WiFi Robusto**         | Reconexión automática con timeout     |
-| 📊**Procesamiento JSON**   | Parsing con ArduinoJson                 |
-| 🖥️**Pantalla OLED**      | Visualización en tiempo real (128x64)  |
-| 📈**Estadísticas**        | Cálculo de disponibilidad y ocupación |
-| 🔄**Reconexión MQTT**     | Manejo automático de desconexiones     |
-| 🎨**Indicadores Visuales** | Semáforo de ocupación (🟢🟡🔴)        |
+| Característica        | Descripción                          |
+| ---------------------- | ------------------------------------- |
+| **Conexión Segura**    | MQTT sobre TLS/SSL (puerto 8883)      |
+| **WiFi Robusto**       | Reconexión automática con timeout     |
+| **Procesamiento JSON** | Parsing con ArduinoJson               |
+| **Pantalla OLED**      | Visualización en tiempo real (128x64) |
+| **Estadísticas**       | Cálculo de disponibilidad y ocupación |
+| **Reconexión MQTT**    | Manejo automático de desconexiones    |
+| **Indicadores Visuales** | Semáforo de ocupación (🟢🟡🔴)      |
 
 ---
 
