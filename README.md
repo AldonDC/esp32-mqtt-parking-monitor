@@ -471,20 +471,6 @@ parking/tour-completed
 
 ---
 
-## 🌐 Plataforma Web de Monitoreo
-
-La plataforma web muestra en tiempo real:
-
-| Dato        | Ejemplo |
-| ----------- | ------- |
-| Ocupados    | 12/250  |
-| Disponibles | 238     |
-| Ocupación  | 5%      |
-
-Los datos que muestra la plataforma web son los mismos que recibe el ESP32 vía MQTT.
-
----
-
 ## 📁 Estructura del Proyecto
 
 ```
