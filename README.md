@@ -464,7 +464,7 @@ parking/tour-completed
 
 | Campo            | Tipo              | Descripción                |
 | ---------------- | ----------------- | --------------------------- |
-| `sentAt`       | string (ISO 8601) | Timestamp del mensaje       |
+| `sentAt`       | string            | Timestamp del mensaje       |
 | `zones`        | array             | Lista de zonas monitoreadas |
 | `zoneName`     | string            | Identificador de la zona    |
 | `carsDetected` | integer           | Número de autos detectados |
