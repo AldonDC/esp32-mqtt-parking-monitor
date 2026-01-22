@@ -176,16 +176,6 @@ Datos reales de los estacionamientos del Tec configurados en el sistema:
 
 ## ✅ Verificación de Cálculos
 
-### Ejemplo con datos de la plataforma web:
-
-| Zona             | Ocupados | Total | Disponibles | Ocupación |
-| ---------------- | -------- | ----- | ----------- | ---------- |
-| EstacionamientoA | 12       | 250   | 238         | 5%         |
-| EstacionamientoB | 25       | 249   | 224         | 10%        |
-| EstacionamientoC | 44       | 366   | 322         | 12%        |
-| EstacionamientoD | 22       | 485   | 463         | 5%         |
-| EstacionamientoE | 17       | 220   | 203         | 8%         |
-
 ### Fórmulas utilizadas:
 
 ```
