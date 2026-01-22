@@ -1,11 +1,11 @@
-# ESP32 MQTT Client - Sistema de Monitoreo de Estacionamientos
+# 🅿️ ESP32 MQTT Client - Sistema de Monitoreo de Estacionamientos
 
 [![ESP32](https://img.shields.io/badge/ESP32-WROOM--32-blue)](https://www.espressif.com/)
 [![MQTT](https://img.shields.io/badge/MQTT-HiveMQ%20Cloud-orange)](https://www.hivemq.com/)
 [![Arduino](https://img.shields.io/badge/Arduino-IDE%202.x-teal)](https://www.arduino.cc/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-> **Reto Técnico - Nuclea Solutions**  
+> **Reto Técnico - Nuclea Solutions**
 > Cliente MQTT en ESP32 para monitoreo en tiempo real de la ocupación de estacionamientos del Tec.
 
 ---
@@ -18,21 +18,25 @@
 - [Hardware Requerido](#-hardware-requerido)
 - [Instalación](#-instalación)
 - [Configuración](#-configuración)
-- [Capacidades de Estacionamientos](#-capacidades-de-estacionamientos)
+- [Capacidades de Estacionamientos](#️-capacidades-de-estacionamientos)
 - [Verificación de Cálculos](#-verificación-de-cálculos)
-- [Capturas de Pantalla](#-capturas-de-pantalla)
+- [Demostración Visual](#-demostración-visual)
+- [Comprobación: Web vs ESP32](#-comprobación-plataforma-web-vs-esp32)
+- [Salida del Serial Monitor](#-salida-del-serial-monitor)
 - [Flujo de Funcionamiento](#-flujo-de-funcionamiento)
 - [Problemas Resueltos](#-problemas-resueltos)
 - [API de Mensajes MQTT](#-api-de-mensajes-mqtt)
-- [Contribuciones](#-contribuciones)
+- [Pruebas con MQTT Explorer](#-pruebas-con-mqtt-explorer)
+- [Autor](#-autor)
 
 ---
 
 ## 📖 Descripción
 
-Este proyecto implementa un **cliente MQTT en ESP32** que se conecta de forma segura a **HiveMQ Cloud** para recibir notificaciones en tiempo real sobre la ocupación de estacionamientos. 
+Este proyecto implementa un **cliente MQTT en ESP32** que se conecta de forma segura a **HiveMQ Cloud** para recibir notificaciones en tiempo real sobre la ocupación de estacionamientos.
 
 El sistema:
+
 - Se suscribe al topic `parking/tour-completed`
 - Recibe y procesa mensajes JSON con información de ocupación por zona
 - Calcula espacios disponibles y porcentaje de ocupación
@@ -61,26 +65,26 @@ El sistema:
 
 ## ✨ Características
 
-| Característica | Descripción |
-|----------------|-------------|
-| 🔐 **Conexión Segura** | MQTT sobre TLS/SSL (puerto 8883) |
-| 📡 **WiFi Robusto** | Reconexión automática con timeout |
-| 📊 **Procesamiento JSON** | Parsing con ArduinoJson |
-| 🖥️ **Pantalla OLED** | Visualización en tiempo real (128x64) |
-| 📈 **Estadísticas** | Cálculo de disponibilidad y ocupación |
-| 🔄 **Reconexión MQTT** | Manejo automático de desconexiones |
-| 🎨 **Indicadores Visuales** | Semáforo de ocupación (🟢🟡🔴) |
+| Característica                  | Descripción                            |
+| -------------------------------- | --------------------------------------- |
+| 🔐**Conexión Segura**     | MQTT sobre TLS/SSL (puerto 8883)        |
+| 📡**WiFi Robusto**         | Reconexión automática con timeout     |
+| 📊**Procesamiento JSON**   | Parsing con ArduinoJson                 |
+| 🖥️**Pantalla OLED**      | Visualización en tiempo real (128x64)  |
+| 📈**Estadísticas**        | Cálculo de disponibilidad y ocupación |
+| 🔄**Reconexión MQTT**     | Manejo automático de desconexiones     |
+| 🎨**Indicadores Visuales** | Semáforo de ocupación (🟢🟡🔴)        |
 
 ---
 
 ## 🔧 Hardware Requerido
 
-| Componente | Especificación |
-|------------|----------------|
-| **Microcontrolador** | ESP32-WROOM-32 DevKit |
-| **Pantalla** | OLED SSD1306 128x64 I2C |
-| **Conexión OLED** | SDA → GPIO21, SCL → GPIO22 |
-| **Alimentación** | USB 5V o fuente externa 3.3V |
+| Componente                 | Especificación              |
+| -------------------------- | ---------------------------- |
+| **Microcontrolador** | ESP32-WROOM-32 DevKit        |
+| **Pantalla**         | OLED SSD1306 128x64 I2C      |
+| **Conexión OLED**   | SDA → GPIO21, SCL → GPIO22 |
+| **Alimentación**    | USB 5V o fuente externa 3.3V |
 
 ### Diagrama de Conexión
 
@@ -109,12 +113,12 @@ cd retoTecnico_NucleaSolutions
 
 Ir a **Sketch → Include Library → Manage Libraries** e instalar:
 
-| Librería | Autor | Versión |
-|----------|-------|---------|
-| `PubSubClient` | Nick O'Leary | >= 2.8.0 |
-| `ArduinoJson` | Benoît Blanchon | >= 6.0.0 |
-| `Adafruit SSD1306` | Adafruit | >= 2.5.0 |
-| `Adafruit GFX Library` | Adafruit | >= 1.11.0 |
+| Librería                | Autor            | Versión  |
+| ------------------------ | ---------------- | --------- |
+| `PubSubClient`         | Nick O'Leary     | >= 2.8.0  |
+| `ArduinoJson`          | Benoît Blanchon | >= 6.0.0  |
+| `Adafruit SSD1306`     | Adafruit         | >= 2.5.0  |
+| `Adafruit GFX Library` | Adafruit         | >= 1.11.0 |
 
 ### 3. Configurar ESP32 en Arduino IDE
 
@@ -153,18 +157,18 @@ const char* MQTT_TOPIC = "parking/tour-completed";
 
 Datos reales de los estacionamientos del Tec configurados en el sistema:
 
-| Zona | Nombre | Capacidad Total |
-|------|--------|-----------------|
-| A | EstacionamientoA | 250 espacios |
-| B | EstacionamientoB | 249 espacios |
-| C | EstacionamientoC | 366 espacios |
-| D | EstacionamientoD | 485 espacios |
-| E | EstacionamientoE | 220 espacios |
-| F | EstacionamientoF | 210 espacios |
-| G | EstacionamientoG | 267 espacios |
-| H | EstacionamientoH | 289 espacios |
-| I | EstacionamientoI | 270 espacios |
-| J | EstacionamientoJ | 400 espacios |
+| Zona | Nombre           | Capacidad Total |
+| ---- | ---------------- | --------------- |
+| A    | EstacionamientoA | 250 espacios    |
+| B    | EstacionamientoB | 249 espacios    |
+| C    | EstacionamientoC | 366 espacios    |
+| D    | EstacionamientoD | 485 espacios    |
+| E    | EstacionamientoE | 220 espacios    |
+| F    | EstacionamientoF | 210 espacios    |
+| G    | EstacionamientoG | 267 espacios    |
+| H    | EstacionamientoH | 289 espacios    |
+| I    | EstacionamientoI | 270 espacios    |
+| J    | EstacionamientoJ | 400 espacios    |
 
 **Total del campus: 3,006 espacios**
 
@@ -174,13 +178,13 @@ Datos reales de los estacionamientos del Tec configurados en el sistema:
 
 ### Ejemplo con datos de la plataforma web:
 
-| Zona | Ocupados | Total | Disponibles | Ocupación |
-|------|----------|-------|-------------|-----------|
-| EstacionamientoA | 12 | 250 | 238 | 5% |
-| EstacionamientoB | 25 | 249 | 224 | 10% |
-| EstacionamientoC | 44 | 366 | 322 | 12% |
-| EstacionamientoD | 22 | 485 | 463 | 5% |
-| EstacionamientoE | 17 | 220 | 203 | 8% |
+| Zona             | Ocupados | Total | Disponibles | Ocupación |
+| ---------------- | -------- | ----- | ----------- | ---------- |
+| EstacionamientoA | 12       | 250   | 238         | 5%         |
+| EstacionamientoB | 25       | 249   | 224         | 10%        |
+| EstacionamientoC | 44       | 366   | 322         | 12%        |
+| EstacionamientoD | 22       | 485   | 463         | 5%         |
+| EstacionamientoE | 17       | 220   | 203         | 8%         |
 
 ### Fórmulas utilizadas:
 
@@ -203,21 +207,98 @@ Cálculos:
 
 ### Indicadores de estado:
 
-| Porcentaje | Indicador | Estado |
-|------------|-----------|--------|
-| < 70% | 🟢 `[OK]` | Disponible |
-| 70% - 90% | 🟡 `[! ]` | Moderado |
-| > 90% | 🔴 `[!!]` | Crítico |
+| Porcentaje | Indicador  | Estado     |
+| ---------- | ---------- | ---------- |
+| < 70%      | 🟢`[OK]` | Disponible |
+| 70% - 90%  | 🟡`[! ]` | Moderado   |
+| > 90%      | 🔴`[!!]` | Crítico   |
 
 ---
 
-## 📸 Capturas de Pantalla
+## 📸 Demostración Visual
 
-### Serial Monitor - Tabla Completa
+### 🖥️ ESP32 + Pantalla OLED en Funcionamiento
+
+![ESP32 con OLED](oled_inicio3.png)
+
+La pantalla OLED muestra en tiempo real:
+
+- **PARKING TEC** - Título del sistema
+- **Ocupados: 143/636** - Autos detectados / Capacidad total
+- **Disponibles: 493** - Espacios libres (número grande)
+- **Ocupación: 22.5% [OK]** - Porcentaje con indicador de estado
+- **Zonas: 2** - Número de zonas monitoreadas
+
+---
+
+## 🔍 Comprobación: Plataforma Web vs ESP32
+
+### Captura 1: Datos de la Plataforma Web
+
+![Comprobación 1](comprobacion_1.png)
+
+**Salida del ESP32 Serial Monitor:**
+
+![Serial Monitor 1](printSerial_1.png)
+
+**Datos mostrados en la plataforma web:**
+
+| Zona | Ocupados | Total | Disponibles | Ocupación |
+| ---- | -------- | ----- | ----------- | ---------- |
+| C    | 44       | 366   | 322         | 12%        |
+| I    | 99       | 270   | 171         | 37%        |
+
+**Totales mostrados:**
+
+- 2/10 zonas activas
+- 143 autos
+- 493 disponibles
+- 22% ocupación
+
+### Captura 2: Más Zonas Activas
+
+![Comprobación 2](comprobacion_2.png)
+
+**Salida del ESP32 Serial Monitor:**
+
+![Serial Monitor 2](printSerial_2.png)
+
+---
+
+## ✅ Verificación de Coincidencia de Datos
+
+### Comparación: Web vs ESP32
+
+| Dato                            | Plataforma Web | ESP32 Serial | ¿Coincide? |
+| ------------------------------- | -------------- | ------------ | ----------- |
+| Estacionamiento C - Ocupados    | 44             | 44           | ✅          |
+| Estacionamiento C - Disponibles | 322            | 322          | ✅          |
+| Estacionamiento C - Ocupación  | 12%            | 12.0%        | ✅          |
+| Estacionamiento I - Ocupados    | 99             | 99           | ✅          |
+| Estacionamiento I - Disponibles | 171            | 171          | ✅          |
+| Estacionamiento I - Ocupación  | 37%            | 36.7%        | ✅          |
+| **Total Ocupados**        | 143            | 143          | ✅          |
+| **Total Disponibles**     | 493            | 493          | ✅          |
+| **Ocupación General**    | 22%            | 22.5%        | ✅          |
+
+### 🎯 Conclusión
+
+**Los datos del ESP32 coinciden exactamente con los de la plataforma web**, validando que:
+
+1. ✅ La conexión MQTT funciona correctamente
+2. ✅ El parsing del JSON es correcto
+3. ✅ Los cálculos de disponibilidad son precisos
+4. ✅ Los porcentajes de ocupación son exactos
+
+---
+
+## 📺 Salida del Serial Monitor
+
+### Tabla Completa con Datos Reales
 
 ```
 ═══════════════════════════════════════════════════════════════════════════
-              SISTEMA DE MONITOREO DE ESTACIONAMIENTOS - TEC              
+              SISTEMA DE MONITOREO DE ESTACIONAMIENTOS - TEC            
 ═══════════════════════════════════════════════════════════════════════════
 
 📅 Fecha/Hora del reporte: 2026-01-22T19:18:12.833Z
@@ -241,17 +322,17 @@ Cálculos:
    📍 Leyenda: 🟢 <70% | 🟡 70-90% | 🔴 >90%
 ```
 
-### Pantalla OLED - Vista Compacta
+### Vista en Pantalla OLED (Esquema)
 
 ```
 ┌────────────────────────┐
-│ PARKING TEC       W/M  │
+│ PARKING TEC       W/M  │  ← W=WiFi OK, M=MQTT OK
 │────────────────────────│
 │ Ocupados: 143/636      │
 │ Disponibles:           │
-│         493            │
+│         493            │  ← Número grande
 │────────────────────────│
-│ Ocupacion: 22.5% [OK]  │
+│ Ocupacion: 22.5% [OK]  │  ← [OK]=Verde, [! ]=Amarillo, [!!]=Rojo
 │ Zonas: 2               │
 └────────────────────────┘
 ```
@@ -320,6 +401,7 @@ Cálculos:
 **Causa:** El hotspot de Ubuntu no compartía Internet correctamente (faltaban reglas NAT).
 
 **Solución:**
+
 ```bash
 # Crear hotspot
 nmcli device wifi hotspot ssid "ESP32_Nuclea" password "Nuclea2026"
@@ -390,12 +472,12 @@ parking/tour-completed
 
 ### Campos
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `sentAt` | string (ISO 8601) | Timestamp del mensaje |
-| `zones` | array | Lista de zonas monitoreadas |
-| `zoneName` | string | Identificador de la zona |
-| `carsDetected` | integer | Número de autos detectados |
+| Campo            | Tipo              | Descripción                |
+| ---------------- | ----------------- | --------------------------- |
+| `sentAt`       | string (ISO 8601) | Timestamp del mensaje       |
+| `zones`        | array             | Lista de zonas monitoreadas |
+| `zoneName`     | string            | Identificador de la zona    |
+| `carsDetected` | integer           | Número de autos detectados |
 
 ---
 
@@ -403,11 +485,11 @@ parking/tour-completed
 
 La plataforma web muestra en tiempo real:
 
-| Dato | Ejemplo |
-|------|---------|
-| Ocupados | 12/250 |
-| Disponibles | 238 |
-| Ocupación | 5% |
+| Dato        | Ejemplo |
+| ----------- | ------- |
+| Ocupados    | 12/250  |
+| Disponibles | 238     |
+| Ocupación  | 5%      |
 
 Los datos que muestra la plataforma web son los mismos que recibe el ESP32 vía MQTT.
 
@@ -448,8 +530,8 @@ Para probar sin esperar mensajes del backend:
 
 ## 👨‍💻 Autor
 
-**Alfonso**  
-Reto Técnico - Nuclea Solutions  
+**Alfonso**
+Reto Técnico - Nuclea Solutions
 Enero 2026
 
 ---
