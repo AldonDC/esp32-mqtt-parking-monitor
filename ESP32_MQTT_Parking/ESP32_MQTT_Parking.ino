@@ -58,18 +58,18 @@ bool g_wifiConnected = false;
 // CONFIGURACIÓN DE RED WiFi
 // ============================================================================
 // IMPORTANTE: Modificar estos valores con las credenciales de tu red WiFi
-const char* WIFI_SSID = "ESP32_Nuclea";
-const char* WIFI_PASSWORD = "Nuclea2026";
+const char* WIFI_SSID     = "TU_WIFI_SSID";      // Nombre de la red WiFi
+const char* WIFI_PASSWORD = "TU_WIFI_PASSWORD";  // Contraseña WiFi REAL (NO subir)
 
 // ============================================================================
 // CONFIGURACIÓN DEL BROKER MQTT (HiveMQ Cloud)
 // ============================================================================
-const char* MQTT_HOST = "83decf4ccce54130ab187c9dd01f20ea.s1.eu.hivemq.cloud";
-const int MQTT_PORT = 8883;                     // Puerto TLS/SSL
-const char* MQTT_USER = "Brandon851";
-const char* MQTT_PASSWORD = "HiveMQBrandon8";
-const char* MQTT_TOPIC = "parking/tour-completed";
-const int MQTT_QOS = 0;
+const char* MQTT_HOST     = "TU_CLUSTER.hivemq.cloud"; // Endpoint de HiveMQ
+const int   MQTT_PORT     = 8883;                      // Puerto TLS/SSL
+const char* MQTT_USER     = "TU_USUARIO_MQTT";         // Usuario MQTT REAL
+const char* MQTT_PASSWORD = "TU_PASSWORD_MQTT";        // Password MQTT REAL
+const char* MQTT_TOPIC    = "parking/tour-completed";  // Topic (no sensible)
+const int   MQTT_QOS      = 0;                         // QoS (no sensible)
 
 // Identificador único del cliente MQTT (se genera con MAC address)
 String MQTT_CLIENT_ID = "ESP32_Parking_";
